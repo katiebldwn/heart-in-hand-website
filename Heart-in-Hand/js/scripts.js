@@ -7,6 +7,35 @@ $(document).ready(function() {
     //     $(this).addClass(imgClass);
     // });
 
+    /***************** Email Signup Div ******************/
+
+    $('.emailSignUpClose').click(function() {
+        console.log('click');
+        $('.emailSignUp').hide();
+    });
+
+    $('.emailSignUpSubmit').on("click", function() {
+        $('#emailThankYou').removeClass('hidden');
+        var userEmail = $('.emailSignUpInput').val();
+        $.ajax({
+             url: '/addEmail',
+             type: 'POST',
+             data: {'email': userEmail},
+             success: function(data){
+             }
+        })
+        $('.emailSignUpText').hide();
+        $('.emailSignUpInput').hide();
+        $('.emailSignUpSubmit').hide();
+        $('.emailSignUpClose').hide();
+        setTimeout(function() {
+            $('.emailSignUp').fadeOut();
+        }, 2000)
+    })
+
+    /***************** Survey ******************/
+
+
     /***************** Like Counter ******************/
 
     $('.count').each(function() {

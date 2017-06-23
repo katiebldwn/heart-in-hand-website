@@ -12,14 +12,11 @@ $.ajax({
 	success: function(data){
  		console.log(data);
 		for( x in data.data ){
-			$('.instagram-ul').append('<li><img src="'+data.data[x].images.low_resolution.url+'"></li>'); // data.data[x].images.low_resolution.url - URL of image, 306х306
-			// data.data[x].images.thumbnail.url - URL of image 150х150
-			// data.data[x].images.standard_resolution.url - URL of image 612х612
-			// data.data[x].link - Instagram post URL 
+			$('.instagram-ul').append('<li><img src="'+data.data[x].images.low_resolution.url+'"></li>');
 		}
 	},
 	error: function(data){
-		console.log(data); // send the error notifications to console
+		console.log(data);
 	}
 });
 
@@ -27,6 +24,7 @@ $('#submit').click(function() {
 	var userAnswer = $('input[name="answer"]:checked').val();
 	var object = {};
 	object.answer = userAnswer;
+	$('.survey').html('');
 
 $.ajax({
 	url: '/vote',
@@ -55,6 +53,12 @@ $.ajax({
 		 				Yorkie++;
 		 			}
 		 		}
+
+		 		$('#surveyResults').removeClass('hidden');
+		 		$('.answer1').html('Pug: ' + Pug);
+		 		$('.answer2').html('Lab: ' + Lab);
+		 		$('.answer3').html('Yorkie: ' + Yorkie);
+
 		 		console.log(Pug);
 		 		console.log(Lab);
 		 		console.log(Yorkie);
