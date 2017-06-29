@@ -189,7 +189,7 @@ div#tweet {
     background-image: url('../img/chickadee-bubble.jpg');
     width: 265px;
     height: 200px;
-    display: block;
+    display: inline-block;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
