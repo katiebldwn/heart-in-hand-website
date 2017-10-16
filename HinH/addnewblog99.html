@@ -1,0 +1,19 @@
+<input type="text" id="title" placeholder="Title"><br>
+<textarea id="blog"></textarea><br>
+<button id="post">Post</button>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+	$('#post').click(function() {
+		var blogPost = {
+			title: $('#title').val(),
+			text: $('#blog').val()
+		}
+		console.log(blogPost);
+		$.ajax({
+			type: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify(blogPost),
+			url: '/addblog'
+		})
+	});
+</script>

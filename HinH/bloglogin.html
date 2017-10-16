@@ -1,0 +1,26 @@
+<input type="text" id="password" placeholder="Password"><br>
+<button id="post">Submit</button>
+<div id="blog"></div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+	$('#post').click(function() {
+		console.log('post');
+		var Password = $('#password').val();
+		$.ajax({
+			type: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify({password: Password}),
+			url: '/bloglogin',
+			success: function(data) {
+				console.log(data);
+				$('#blog').html('Add Blog Post');
+				$('#password').hide();
+				$('#post').hide();
+			},
+			error: function(data) {
+				console.log(data);
+				$('#blog').html('Password Incorrect');
+			}
+		})
+	});
+</script>

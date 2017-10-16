@@ -1,0 +1,10 @@
+<div id="blogs"></div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+		$.getJSON('/blogs', function(data) {
+			console.log(data);
+			$.each(data, function(index, value) {
+				$('#blogs').append('<h1>'+value.title+'</h1><p>'+value.text+'</p>');
+			})
+		})
+</script>

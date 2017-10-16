@@ -21,6 +21,15 @@ var voteSchema = new Schema({
 var Vote = mongoose.model('vote', voteSchema);
 
 
+var blogSchema = new Schema({
+  title: String,
+  text: String
+});
+
+var Blog = mongoose.model('blog', blogSchema);
+
+
+
 var emailSchema = new Schema({
   email: String
 });
@@ -48,7 +57,10 @@ var transporter = nodemailer.createTransport({
 
 
 
-app.use('/', express.static('Heart-in-Hand'));
+app.use('/', express.static('HinH'));
+
+
+
 
 app.get("/vote", function(req, res) {
 	Vote.find(function(err, users){
@@ -108,6 +120,38 @@ transporter.sendMail(mailOptions, function(error, info){
     }
 });
 
+});
+
+
+
+
+app.post('/addBlog', function(req, res){
+    console.log(req.body);
+    newBlog = new Blog(req.body);
+    newBlog.save(function(err) {
+        if (err)
+            res.send(err);
+    });
+});
+
+
+app.get("/blogs", function(req, res) {
+    Blog.find(function(err, blogs){
+        console.log(blogs);
+        if(err)
+            res.send(err);
+        res.json(blogs);
+    })  
+})  
+
+app.post('/bloglogin', function(req, res){
+    console.log(req.body);
+    if (req.body.password === 'blog1223') {
+        res.status(201).json({message: 'Success'})
+    }
+    else {
+        res.status(500).json({message: 'Denied'})
+    }
 });
 
 

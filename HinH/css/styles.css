@@ -181,7 +181,7 @@ p {
 
 .survey {
 	text-align: center;
-	margin-top: 50px;
+	margin-top: -10px;
 	margin-bottom: 50px;
 }
 
@@ -193,13 +193,16 @@ div#tweet {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    margin-left: 450px;
+    margin-right: 450px;
+    padding-bottom: -1500px;
 }
 
 .tweetText {
     position: absolute;
-    top: 20px;
-    right: 5px;
-    font-size: 10px;
+    top: 35px;
+    right: 15px;
+    font-size: 14px;
 
 }
 
@@ -262,6 +265,12 @@ div#tweet {
     display: none;
 }
 
+#downloadImg {
+    float: left;
+    margin-left: 45px;
+    margin-top: -175px;
+}
+
 .surveyResults {
     text-align: center;
     /*display: inline-block;*/
@@ -279,6 +288,10 @@ div#tweet {
 .hello {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.aboutText {
+    padding: 25px;
 }
 
 
@@ -458,9 +471,9 @@ body {
 
 html,
 body {
-    font-family: Raleway, Verdana, Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    /*font-weight: 300;*/
     width: 100%;
     height: 100%;
     margin: 0;
